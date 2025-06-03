@@ -1,20 +1,126 @@
 package com.example.water_tracker
 
+import android.app.AlertDialog
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.provider.Settings
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.BottomAppBar
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.rememberNavController
+import androidx.work.WorkManager
+import com.example.water_tracker.navigation.AppNavGraph
+import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.ui.components.AppBottomNav
+import com.example.water_tracker.ui.screens.settings.SettingsViewModel
+import com.example.water_tracker.utils.Constants.NOTIFICATION_PERMISSION_REQUEST_CODE
+import com.example.water_tracker.utils.WorkerHelper
+import com.example.water_tracker.worker.HistoryAddWorker
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+@ExperimentalMaterialApi
+class MainActivity : ComponentActivity() {
+    private val viewModel: SettingsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        installSplashScreen()
+
+        setContent {
+            HydrationTrackerTheme {
+                val navController = rememberNavController()
+
+                LaunchedEffect(true) {
+                    initDatabaseWorker()
+                }
+
+                Scaffold(
+                    bottomBar = {
+                        BottomAppBar(
+                            backgroundColor = MaterialTheme.colors.primaryVariant,
+                            elevation = 0.dp
+                        ) {
+                            AppBottomNav(navController = navController)
+                        }
+                    },
+                    content = {
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(it)
+                        ) {
+                            AppNavGraph(navController = navController)
+                        }
+                    }
+                )
+            }
         }
+    }
+
+    /**
+     * Create a function for scheduling create database every night
+     * at 00:00:00 am
+     */
+    private fun initDatabaseWorker() {
+        if (WorkManager.getInstance(this)
+                .getWorkInfosForUniqueWork(HistoryAddWorker.UNIQUE_WORKER_NAME).get().isEmpty()
+        ) {
+            WorkerHelper.createHistoryDrinkWorker(
+                context = applicationContext,
+                scheduleType = WorkerHelper.ScheduleType.NOW
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        when (requestCode) {
+            NOTIFICATION_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Разрешение получено - включаем уведомления
+                    viewModel.toggleNotifications(true)
+                } else {
+                    // Показываем объяснение, если нужно
+                    showPermissionDeniedMessage()
+                }
+            }
+        }
+    }
+
+    private fun showPermissionDeniedMessage() {
+        AlertDialog.Builder(this)
+            .setTitle("Разрешение требуется")
+            .setMessage("Для работы напоминаний необходимо разрешение на уведомления")
+            .setPositiveButton("Настройки") { _, _ ->
+                openAppSettings()
+            }
+            .setNegativeButton("Отмена", null)
+            .show()
+    }
+
+    private fun openAppSettings() {
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+            data = Uri.fromParts("package", packageName, null)
+        }
+        startActivity(intent)
     }
 }
