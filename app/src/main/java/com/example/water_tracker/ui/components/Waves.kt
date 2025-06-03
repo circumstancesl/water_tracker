@@ -2,7 +2,6 @@ package com.example.water_tracker.ui.components
 
 import android.graphics.Matrix
 import android.graphics.Shader
-import android.util.Log
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.BoxWithConstraints

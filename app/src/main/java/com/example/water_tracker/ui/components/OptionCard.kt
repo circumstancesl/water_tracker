@@ -17,10 +17,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.water_tracker.R
-import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.theme.WaterTrackerTheme
 import com.example.water_tracker.theme.TestColor
 
 @Composable
@@ -71,7 +70,7 @@ enum class OptionType {
 @Preview
 @Composable
 fun OptionCardPreview() {
-    HydrationTrackerTheme {
+    WaterTrackerTheme {
         OptionCard(
             onCardClicked = { },
             title = "150ml",

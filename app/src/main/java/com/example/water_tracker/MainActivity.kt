@@ -20,11 +20,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import androidx.work.WorkManager
 import com.example.water_tracker.navigation.AppNavGraph
-import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.theme.WaterTrackerTheme
 import com.example.water_tracker.ui.components.AppBottomNav
 import com.example.water_tracker.ui.screens.settings.SettingsViewModel
 import com.example.water_tracker.utils.Constants.NOTIFICATION_PERMISSION_REQUEST_CODE
@@ -41,7 +40,7 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
 
         setContent {
-            HydrationTrackerTheme {
+            WaterTrackerTheme {
                 val navController = rememberNavController()
 
                 LaunchedEffect(true) {
@@ -96,10 +95,8 @@ class MainActivity : ComponentActivity() {
         when (requestCode) {
             NOTIFICATION_PERMISSION_REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Разрешение получено - включаем уведомления
                     viewModel.toggleNotifications(true)
                 } else {
-                    // Показываем объяснение, если нужно
                     showPermissionDeniedMessage()
                 }
             }
@@ -108,12 +105,12 @@ class MainActivity : ComponentActivity() {
 
     private fun showPermissionDeniedMessage() {
         AlertDialog.Builder(this)
-            .setTitle("Разрешение требуется")
-            .setMessage("Для работы напоминаний необходимо разрешение на уведомления")
-            .setPositiveButton("Настройки") { _, _ ->
+            .setTitle("Permission required")
+            .setMessage("Notifications permission is required for reminders to work.")
+            .setPositiveButton("Settings") { _, _ ->
                 openAppSettings()
             }
-            .setNegativeButton("Отмена", null)
+            .setNegativeButton("Cancel", null)
             .show()
     }
 

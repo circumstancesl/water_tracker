@@ -1,7 +1,6 @@
 package com.example.water_tracker.ui.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.util.Log
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,8 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.water_tracker.MainActivity
-import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.theme.WaterTrackerTheme
 
 @Composable
 fun PercentageProgress(
@@ -145,24 +143,7 @@ fun DrawScope.backgroundDrawer(
 @Preview
 @Composable
 fun PercentageProgressPreview() {
-    HydrationTrackerTheme {
-        Surface {
-            PercentageProgress(
-                value = 80,
-                maxValue = 100,
-                indicatorForegroundColor = MaterialTheme.colors.onBackground,
-                indicatorBackgroundColor = MaterialTheme.colors.onBackground,
-                foregroundStrokeWidth = 8F,
-                backgroundStrokeWidth = 4F
-            )
-        }
-    }
-}
-
-@Preview(uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun PercentageProgressPreviewDarkMode() {
-    HydrationTrackerTheme {
+    WaterTrackerTheme {
         Surface {
             PercentageProgress(
                 value = 80,

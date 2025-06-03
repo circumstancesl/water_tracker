@@ -1,9 +1,6 @@
 package com.example.water_tracker.utils
 
-import android.util.Log
-import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeParseException
 import java.util.*
 
 object DateFormatter {

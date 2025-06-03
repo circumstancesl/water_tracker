@@ -17,7 +17,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.theme.WaterTrackerTheme
 import com.example.water_tracker.theme.OnPrimaryColor
 import com.example.water_tracker.utils.navigation.Routes
 
@@ -56,7 +56,7 @@ fun AppBottomNav(navController: NavHostController) {
 @Preview
 @Composable
 fun AppBottomNavPreview() {
-    HydrationTrackerTheme {
+    WaterTrackerTheme {
         Surface(modifier = Modifier.fillMaxWidth()) {
             AppBottomNav(navController = rememberNavController())
         }

@@ -1,10 +1,7 @@
 package com.example.water_tracker.ui.screens.settings
 
 import android.Manifest
-import android.app.Activity
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Build
-import android.preference.SwitchPreference
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -17,19 +14,16 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.example.water_tracker.R
-import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.theme.WaterTrackerTheme
 import com.example.water_tracker.ui.components.DialogEditValue
 import com.example.water_tracker.ui.components.Setting
 import com.example.water_tracker.ui.components.SettingHeader
-import com.example.water_tracker.utils.Constants.NOTIFICATION_PERMISSION_REQUEST_CODE
 
 @Composable
 fun SettingsScreen(
@@ -37,7 +31,6 @@ fun SettingsScreen(
 ) {
     val state = viewModel.state
     var showDialog by remember { mutableStateOf(false) }
-    val context = LocalContext.current
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { granted ->
@@ -149,24 +142,9 @@ fun SettingsPageTopBar() {
 @Preview
 @Composable
 fun SettingsScreenPreview() {
-    HydrationTrackerTheme {
+    WaterTrackerTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             SettingsScreen()
         }
     }
 }
-
-@Preview(uiMode = UI_MODE_NIGHT_YES)
-@Composable
-fun SettingsScreenPreviewDarkMode() {
-    HydrationTrackerTheme {
-        Surface(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colors.background)
-        ) {
-            SettingsScreen()
-        }
-    }
-}
-

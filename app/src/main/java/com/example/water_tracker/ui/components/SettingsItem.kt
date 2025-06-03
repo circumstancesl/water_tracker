@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.water_tracker.R
-import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.theme.WaterTrackerTheme
 
 @Composable
 fun SettingHeader(
@@ -66,7 +66,7 @@ fun Setting(
 @Preview
 @Composable
 fun SettingHeaderPreview() {
-    HydrationTrackerTheme {
+    WaterTrackerTheme {
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
@@ -82,7 +82,7 @@ fun SettingHeaderPreview() {
 @Preview
 @Composable
 fun SettingPreview() {
-    HydrationTrackerTheme {
+    WaterTrackerTheme {
         Surface(
             modifier = Modifier
                 .fillMaxWidth()

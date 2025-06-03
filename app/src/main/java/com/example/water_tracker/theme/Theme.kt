@@ -1,22 +1,9 @@
 package com.example.water_tracker.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-
-private val DarkColorPalette = darkColors(
-    primary = PrimaryColor,
-    primaryVariant = PrimaryVariantColor,
-    secondary = SecondaryColor,
-    background = BackgroundColor,
-    onBackground = OnBackgroundColor,
-    onPrimary = OnPrimaryColor,
-    surface = BackgroundColor,
-    onSurface = OnBackgroundColor
-)
 
 private val LightColorPalette = lightColors(
     primary = PrimaryColor,
@@ -30,11 +17,10 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun HydrationTrackerTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+fun WaterTrackerTheme(
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) DarkColorPalette else LightColorPalette
+    val colors = LightColorPalette
 
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(colors.background, darkIcons = true)

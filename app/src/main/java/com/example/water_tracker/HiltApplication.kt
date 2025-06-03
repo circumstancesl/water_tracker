@@ -7,9 +7,7 @@ import android.os.Build
 import androidx.core.content.getSystemService
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import androidx.work.WorkManager
 import com.example.water_tracker.utils.SharedPrefHelper
-import com.example.water_tracker.worker.ReminderManager
 import dagger.hilt.EntryPoint
 import dagger.hilt.EntryPoints
 import dagger.hilt.InstallIn
@@ -38,10 +36,10 @@ class HiltApplication : Application(), Configuration.Provider {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 "water_reminder_channel",
-                "Напоминания о воде",
+                "Water Reminders",
                 NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
-                description = "Напоминания пить воду через заданные интервалы"
+                description = "Reminders to drink water at set intervals"
             }
             getSystemService<NotificationManager>()?.createNotificationChannel(channel)
         }

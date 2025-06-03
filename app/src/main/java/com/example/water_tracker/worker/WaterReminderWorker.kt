@@ -19,8 +19,8 @@ class WaterReminderWorker(
 
     private fun showNotification() {
         val notification = NotificationCompat.Builder(applicationContext, "water_reminder_channel")
-            .setContentTitle("Пора пить воду!")
-            .setContentText("Выпейте стакан воды для поддержания водного баланса")
+            .setContentTitle("It's time to drink water!")
+            .setContentText("Drink a glass of water to stay hydrated")
             .setSmallIcon(R.drawable.ic_water_drop)
             .setAutoCancel(true)
             .build()
@@ -33,6 +33,5 @@ class WaterReminderWorker(
 
     companion object {
         const val NOTIFICATION_ID = 1
-        const val WORK_TAG = "water_reminder_work"
     }
 }

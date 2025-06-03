@@ -27,7 +27,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.example.water_tracker.theme.HydrationTrackerTheme
+import com.example.water_tracker.theme.WaterTrackerTheme
 
 @Composable
 fun DialogEditValue(
@@ -105,7 +105,7 @@ fun DialogEditValue(
 @Preview
 @Composable
 fun DialogEditValuePreview() {
-    HydrationTrackerTheme {
+    WaterTrackerTheme {
         DialogEditValue(title = "Hello", value = "100", onSubmit = {}, onDismiss = {})
     }
 }
