@@ -7,7 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.water_tracker.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
 
 @Composable
 fun DeleteConfirmationDialog(

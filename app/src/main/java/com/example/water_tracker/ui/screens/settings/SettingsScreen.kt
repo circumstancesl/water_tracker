@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.water_tracker.R
-import com.example.water_tracker.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
 import com.example.water_tracker.ui.components.DialogEditValue
 import com.example.water_tracker.ui.components.Setting
 import com.example.water_tracker.ui.components.SettingHeader

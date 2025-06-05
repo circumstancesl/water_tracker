@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.example.water_tracker.R
-import com.example.water_tracker.theme.SecondaryColor
+import com.example.water_tracker.ui.theme.SecondaryColor
 
 @Composable
 fun CustomSnackBar(state: SnackbarHostState) {

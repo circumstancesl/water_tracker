@@ -1,4 +1,4 @@
-package com.example.water_tracker.theme
+package com.example.water_tracker.ui.theme
 
 import androidx.compose.material.*
 import androidx.compose.ui.text.TextStyle

@@ -27,7 +27,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.example.water_tracker.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
 
 @Composable
 fun DialogEditValue(

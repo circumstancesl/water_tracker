@@ -23,7 +23,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import androidx.work.WorkManager
 import com.example.water_tracker.navigation.AppNavGraph
-import com.example.water_tracker.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
 import com.example.water_tracker.ui.components.AppBottomNav
 import com.example.water_tracker.ui.screens.settings.SettingsViewModel
 import com.example.water_tracker.utils.Constants.NOTIFICATION_PERMISSION_REQUEST_CODE

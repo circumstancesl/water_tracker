@@ -17,8 +17,8 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.water_tracker.theme.WaterTrackerTheme
-import com.example.water_tracker.theme.OnPrimaryColor
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.OnPrimaryColor
 import com.example.water_tracker.utils.navigation.Routes
 
 @Composable

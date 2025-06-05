@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.LifecycleOwner
-import com.example.water_tracker.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
 import com.example.water_tracker.ui.components.ContextMenuDialog
 import com.example.water_tracker.ui.components.DeleteConfirmationDialog
 import com.example.water_tracker.ui.components.DialogEditValue

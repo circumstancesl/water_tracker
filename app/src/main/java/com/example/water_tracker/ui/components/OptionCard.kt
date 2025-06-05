@@ -19,8 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.water_tracker.R
-import com.example.water_tracker.theme.WaterTrackerTheme
-import com.example.water_tracker.theme.TestColor
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.TestColor
 
 @Composable
 fun OptionCard(

@@ -49,7 +49,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.example.water_tracker.R
 import com.example.water_tracker.data.models.DrinkType
-import com.example.water_tracker.theme.WaterTrackerTheme
+import com.example.water_tracker.ui.theme.WaterTrackerTheme
 import com.example.water_tracker.ui.components.CustomSnackBar
 import com.example.water_tracker.ui.components.OptionCard
 import com.example.water_tracker.ui.components.OptionType
