@@ -1,18 +1,13 @@
-package com.example.water_tracker.worker
+package com.example.water_tracker.reminder
 
 import android.content.Context
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.SingletonComponent
+import com.example.water_tracker.worker.WaterReminderWorker
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
-import javax.inject.Singleton
 
 class ReminderManager @Inject constructor(
     private val context: Context,
@@ -45,25 +40,5 @@ class ReminderManager @Inject constructor(
     companion object {
         const val WATER_REMINDER_WORK_NAME = "water_reminder_work_name"
         const val WATER_REMINDER_TAG = "water_reminder_tag"
-    }
-}
-
-@Module
-@InstallIn(SingletonComponent::class)
-object ReminderModule {
-
-    @Provides
-    @Singleton
-    fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
-        return WorkManager.getInstance(context)
-    }
-
-    @Provides
-    @Singleton
-    fun provideReminderManager(
-        @ApplicationContext context: Context,
-        workManager: WorkManager
-    ): ReminderManager {
-        return ReminderManager(context, workManager)
     }
 }

@@ -38,7 +38,7 @@ fun PercentageProgress(
     indicatorBackgroundColor: Color = MaterialTheme.colors.onBackground
 ) {
 
-    // Create animation for the percentage progress
+    // анимация прогресса
     val allowedIndicatorValue = if (value < maxValue) value else maxValue
     var animatedIndicatorValue by remember {
         mutableFloatStateOf(0F)
@@ -53,7 +53,7 @@ fun PercentageProgress(
         label = ""
     )
 
-    // Create animation for text
+    // анимация текста
     val animatedText by animateIntAsState(
         targetValue = percentageValue.toInt(),
         animationSpec = tween(

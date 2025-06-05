@@ -64,11 +64,6 @@ fun SettingsScreen(
                     .background(MaterialTheme.colors.surface)
                     .padding(16.dp)
             ) {
-                Text(
-                    text = "Reminders to drink water",
-                    style = MaterialTheme.typography.h6,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,

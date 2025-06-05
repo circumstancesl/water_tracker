@@ -83,18 +83,6 @@ fun HistoryScreen(
     }
 }
 
-@Composable
-fun HistoryPageTopBar() {
-    Text(
-        text = "History",
-        style = MaterialTheme.typography.h1,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(18.dp),
-        textAlign = TextAlign.Center
-    )
-}
-
 @Preview
 @Composable
 fun HistoryScreenPreview() {

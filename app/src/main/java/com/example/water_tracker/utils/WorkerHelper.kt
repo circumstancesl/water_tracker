@@ -14,17 +14,16 @@ object WorkerHelper {
         val historyAddWorkerRequest = OneTimeWorkRequestBuilder<HistoryAddWorker>()
 
         if (scheduleType == ScheduleType.SCHEDULED) {
-            // Set calendar at 00:00:00 am
+            // установить календарь на 00:00:00
             val currentDate = Calendar.getInstance()
             val dueDate = Calendar.getInstance()
             dueDate.set(Calendar.HOUR_OF_DAY, 0)
             dueDate.set(Calendar.MINUTE, 0)
             dueDate.set(Calendar.SECOND, 0)
 
-            // Add one day for tomorrow schedule
+            // добавить один день в расписание на завтра
             dueDate.add(Calendar.HOUR_OF_DAY, 24)
 
-            // Convert time to millisecond and subtract with now time in millisecond
             val totalTimeMillis = dueDate.timeInMillis - currentDate.timeInMillis
             historyAddWorkerRequest.setInitialDelay(totalTimeMillis, TimeUnit.MILLISECONDS)
         }

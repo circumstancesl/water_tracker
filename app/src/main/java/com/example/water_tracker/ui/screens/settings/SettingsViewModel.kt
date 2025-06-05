@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.water_tracker.utils.SharedPrefHelper
-import com.example.water_tracker.worker.ReminderManager
+import com.example.water_tracker.reminder.ReminderManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

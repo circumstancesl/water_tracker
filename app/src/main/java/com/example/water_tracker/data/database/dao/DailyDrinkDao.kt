@@ -22,7 +22,4 @@ interface DailyDrinkDAO {
 
     @Delete
     suspend fun deleteHistory(drinkHistory: DailyHistory)
-
-    @Update
-    suspend fun updateHistory(drinkHistory: DailyHistory)
 }

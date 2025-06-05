@@ -136,6 +136,7 @@ private fun createsWaveShader(width: Int, height: Int, color: Color): Shader {
 
     val waveY = FloatArray(size = width + 1)
 
+    // Рисует первую волну с полупрозрачным цветом
     wavePoint.color = color.copy(alpha = 0.3F)
     for (beginX in 0..width) {
         val wx = beginX * angularFrequency
@@ -148,6 +149,7 @@ private fun createsWaveShader(width: Int, height: Int, color: Color): Shader {
         waveY[beginX] = beginY
     }
 
+    // Рисует вторую волну поверх первой — более насыщенного цвета
     wavePoint.color = color
     val endX = width + 1
     val waveToShift = width / 4

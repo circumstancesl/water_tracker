@@ -237,25 +237,6 @@ fun MainScreen(
     onOptionClicked: (DrinkType) -> Unit,
     onCustomAmountClicked: () -> Unit,
 ) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Box(
-            modifier = Modifier
-        ) {
-            Text(
-                text = stringResource(
-                    id = R.string.current_amount,
-                    state.history?.totalAmount ?: 0,
-                    state.totalAmount
-                ),
-                style = MaterialTheme.typography.body1.copy(
-                    color = MaterialTheme.colors.onBackground
-                )
-            )
-        }
-    }
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
@@ -283,6 +264,7 @@ fun MainScreen(
                 Spacer(modifier = Modifier.height(18.dp))
                 PercentageProgress(value = (state.percentage * 100).toInt())
                 Spacer(modifier = Modifier.height(8.dp))
+                // Текст теперь отображается только здесь — по центру
                 Text(
                     text = stringResource(
                         id = R.string.current_amount,
@@ -301,7 +283,6 @@ fun MainScreen(
                     drinkTypes = state.drinkTypes?.take(3),
                     onOptionClicked = { onOptionClicked(it) },
                 )
-
                 Button(
                     onClick = onCustomAmountClicked,
                     modifier = Modifier

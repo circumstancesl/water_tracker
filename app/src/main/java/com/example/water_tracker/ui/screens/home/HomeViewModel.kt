@@ -1,19 +1,16 @@
 package com.example.water_tracker.ui.screens.home
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.water_tracker.data.models.DailyHistory
 import com.example.water_tracker.data.repository.DailyHistoryRepository
 import com.example.water_tracker.utils.DateFormatter
 import com.example.water_tracker.utils.DrinkTypeData
 import com.example.water_tracker.utils.SharedPrefHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.text.DateFormat
 import java.util.*
 import javax.inject.Inject
 

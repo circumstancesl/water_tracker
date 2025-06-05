@@ -70,10 +70,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    /**
-     * Create a function for scheduling create database every night
-     * at 00:00:00 am
-     */
     private fun initDatabaseWorker() {
         if (WorkManager.getInstance(this)
                 .getWorkInfosForUniqueWork(HistoryAddWorker.UNIQUE_WORKER_NAME).get().isEmpty()

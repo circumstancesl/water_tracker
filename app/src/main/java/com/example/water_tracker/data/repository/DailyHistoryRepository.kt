@@ -30,14 +30,6 @@ class DailyHistoryRepository @Inject constructor(private val dailyHistoryDao: Da
         }
     }
 
-    suspend fun updateHistory(dailyHistory: DailyHistory) {
-        try {
-            dailyHistoryDao.updateHistory(dailyHistory)
-        } catch (e: Exception) {
-            Log.e(DailyHistoryRepository::class.simpleName, "updateHistory: ${e.localizedMessage}")
-        }
-    }
-
     suspend fun deleteHistory(dailyHistory: DailyHistory) {
         try {
             dailyHistoryDao.deleteHistory(dailyHistory)

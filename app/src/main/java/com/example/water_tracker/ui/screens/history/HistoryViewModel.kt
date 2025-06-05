@@ -1,18 +1,11 @@
 package com.example.water_tracker.ui.screens.history
 
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.media3.common.util.Log
 import com.example.water_tracker.data.models.DailyHistory
 import com.example.water_tracker.data.repository.DailyHistoryRepository
-import com.example.water_tracker.ui.screens.home.HomeState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -57,7 +50,7 @@ class HistoryViewModel @Inject constructor(
 
         state.value.selectedHistory?.let { history ->
             viewModelScope.launch {
-                repository.updateHistory(history.copy(totalAmount = amount))
+                repository.createHistory(history.copy(totalAmount = amount))
                 loadHistories()
             }
         }
