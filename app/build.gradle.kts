@@ -100,21 +100,4 @@ dependencies {
 
     // Work manager
     implementation(libs.workmanager)
-
-    // Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
-
-    // Testing
-    testImplementation(libs.junit)
-    testImplementation(libs.truth)
-    androidTestImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(libs.truth)
-    androidTestImplementation(libs.core.testing)
-    androidTestImplementation(libs.coroutines.testing)
-    androidTestImplementation(libs.hilt.testing)
-    androidTestImplementation(libs.runner.testing)
-    kspAndroidTest(libs.hilt.compiler)
 }
